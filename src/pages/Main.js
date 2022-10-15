@@ -5,19 +5,30 @@ import Passage from "../components/Passage";
 import styled from "styled-components";
 
 function Main() {
-  const [chapter, setChapter] = useState(1);
   const [today, setToday] = useState(new Date());
+  const [chapter, setChapter] = useState(today.getDate());
   const [passages, setPassages] = useState("");
   const { focusRef } = useRef(null);
 
   useEffect(() => {
-    fetch(`https://api.esv.org/v3/passage/html/?q=proverbs+${chapter}`, {
-      headers: { Authorization: "089e1caeb4263d7f01b61d7f96859039a93fbba0" },
-    }).then((response) => response.json().then((data) => setPassages(data)));
-  // async await
-}, [chapter]);
-
-window.scrollTo({ top: 0, behavior: "smooth" });
+    const fetchData = async () => {
+      const data = await fetch(
+        `https://api.esv.org/v3/passage/html/?q=proverbs+${chapter}`,
+        {
+          headers: {
+            Authorization: "089e1caeb4263d7f01b61d7f96859039a93fbba0",
+          },
+        }
+      );
+      const json = await data.json();
+      setPassages(json);
+    };
+    fetchData().catch((err) => {
+      console.log(err);
+    });
+   setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 300);
+    
+  }, [chapter]);
 
   const tomorrowHandler = () => {
     setToday(new Date(today.setDate(today.getDate() + 1)));

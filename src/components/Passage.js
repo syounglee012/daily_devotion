@@ -4,11 +4,10 @@ import Audio from "./Audio";
 
 export default function Passage({ passages, now}) {
   
-
   return (
     <Container>
       <ContextContainer >
-        <Title>Daily Devotion</Title>
+        <Title>Proverbs Daily Devotion</Title>
         <Context>
           <MiddleContainer>
             <ContextTitle>{passages?.canonical}</ContextTitle>

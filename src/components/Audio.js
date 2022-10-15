@@ -6,7 +6,7 @@ const Audio = ({ passages }) => {
   const audio = passages?.passages?.[0].split(" ")?.[7]?.slice(6, -1);
   return (
     <AudioContainer>
-      <a key={passages?.id} href={audio} passHref>
+      <a key={passages?.id} href={audio}>
         <ImHeadphones />
       </a>
     </AudioContainer>

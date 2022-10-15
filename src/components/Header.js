@@ -12,29 +12,11 @@ export default function Header() {
         </FirstBox>
         <SecondBox>
           <ul id="list">
-            <li>
-              <a >About</a>
-            </li>
-          
-            <li>
-              {" "}
-              <a >Ministries </a>
-            </li>
-       
-            <li>
-              {" "}
-              <a >Devotional</a>
-            </li>
-         
-            <li>
-              {" "}
-              <a>Location</a>
-            </li>
-       
-            <li>
-              {" "}
-              <a>Giving</a>
-            </li>
+            <li>About</li>
+            <li>Ministries</li>
+            <li>Devotional</li>
+            <li>Location</li>
+            <li>Giving</li>
           </ul>
         </SecondBox>
       </MiddleContainer>
