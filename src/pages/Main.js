@@ -8,26 +8,30 @@ function Main() {
   const [today, setToday] = useState(new Date());
   const [chapter, setChapter] = useState(today.getDate());
   const [passages, setPassages] = useState("");
-  const { focusRef } = useRef(null);
+  const focusRef = useRef(null);
+
+  
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetch(
+      return await fetch(
         `https://api.esv.org/v3/passage/html/?q=proverbs+${chapter}`,
         {
           headers: {
-            Authorization: "089e1caeb4263d7f01b61d7f96859039a93fbba0",
+            Authorization: process.env.REACT_APP_API_KEY,
           },
         }
       );
-      const json = await data.json();
-      setPassages(json);
     };
-    fetchData().catch((err) => {
+
+    fetchData().then((res) => {
+      return res.json();
+    }).then((data) => {
+      setPassages(data);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }).catch((err) => {
       console.log(err);
     });
-   setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 300);
-    
   }, [chapter]);
 
   const tomorrowHandler = () => {

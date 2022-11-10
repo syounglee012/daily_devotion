@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Audio from "./Audio";
 
-export default function Passage({ passages, now}) {
+export default function Passage({ passages, now }) {
   
   return (
     <Container>
