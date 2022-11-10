@@ -1,1 +1,1 @@
-https://syounglee012.github.io/daily_devotion/
+URL: https://syounglee012.github.io/daily_devotion/
