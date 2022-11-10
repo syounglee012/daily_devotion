@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/daily_devotion/static/css/main.e6c13ad2.css",
+    "main.js": "/daily_devotion/static/js/main.21cb0d2b.js",
+    "static/js/787.e2902d16.chunk.js": "/daily_devotion/static/js/787.e2902d16.chunk.js",
+    "index.html": "/daily_devotion/index.html",
+    "main.e6c13ad2.css.map": "/daily_devotion/static/css/main.e6c13ad2.css.map",
+    "main.21cb0d2b.js.map": "/daily_devotion/static/js/main.21cb0d2b.js.map",
+    "787.e2902d16.chunk.js.map": "/daily_devotion/static/js/787.e2902d16.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.21cb0d2b.js"
+  ]
+}
