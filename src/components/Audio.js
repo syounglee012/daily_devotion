@@ -17,4 +17,8 @@ export default Audio;
 
 const AudioContainer = styled.div`
   padding: 20px 0 0 10px;
+   
+  @media screen and (max-width:700px) {
+  padding: 9px 0 0 7px;
+  }
 `;

@@ -8,17 +8,9 @@ export default function Header() {
       <MiddleContainer>
         <FirstBox>
           <ChurchLogo><TbBuildingChurch size={30}/></ChurchLogo>
-          <ChurchName>New Covent Baptist Church</ChurchName>
+          <ChurchName>Young's Church</ChurchName>
         </FirstBox>
-        <SecondBox>
-          <ul id="list">
-            <li>About</li>
-            <li>Ministries</li>
-            <li>Devotional</li>
-            <li>Location</li>
-            <li>Giving</li>
-          </ul>
-        </SecondBox>
+     
       </MiddleContainer>
     </MainContainer>
   );
@@ -49,7 +41,7 @@ const MiddleContainer = styled.div`
 const FirstBox = styled.div`
   display: flex;
   align-items: center;
-  margin: 8px 0;
+  margin: 8px auto;
   height: 27px;
   z-index: 20;
 `;
@@ -64,21 +56,4 @@ const ChurchName = styled.h3`
   margin: 10px 0 0 20px;
 `;
 
-const SecondBox = styled.div`
-  width: 100%;
-  max-width: 500px;
-  
-  #list{
-    font-size: 18px;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    
-    @media screen and (max-width:700px) {
-    font-size: 12px;
-    padding: 0 40px;
-  }
-
-  }
-`;
 
