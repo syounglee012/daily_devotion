@@ -38,6 +38,9 @@ const ContextContainer = styled.div`
 const Title = styled.h1`
   font-size: 48px;
   font-weight: bold;
+  @media screen and (max-width:700px) {
+    font-size: 34px;
+  }
 `;
 
 const Context = styled.div`
@@ -51,6 +54,9 @@ const ContextTitle = styled.span`
   font-weight: 300;
   margin: 0;
   display: inline;
+  @media screen and (max-width:700px) {
+    font-size: 26px;
+  }
 `;
 
 const DateAndTime = styled.p`
@@ -60,12 +66,18 @@ const DateAndTime = styled.p`
   font-size: 18px;
   font-style: italic;
   color: #777;
+  @media screen and (max-width:700px) {
+    font-size: 16px;
+  }
 `;
 
 const TodaysMessage = styled.div`
   color: #555555;
   font-size: 18px;
   font-weight: 300;
+  @media screen and (max-width:700px) {
+    font-size: 16px;
+  }
 
   & h2 {
     font-size: 0;
