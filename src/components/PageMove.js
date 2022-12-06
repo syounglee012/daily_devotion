@@ -62,6 +62,7 @@ cursor: pointer;
     background-color: transparent;
     display: flex;
     color: blue;
+    margin-bottom: 5rem;
 `;
 
 
