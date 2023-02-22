@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-concat */
 import React, { useEffect, useState, useRef } from "react";
 import Header from "../components/Header";
 import PageMove from "../components/PageMove";
@@ -79,7 +80,6 @@ function Main() {
   ];
   let month = MONTH[today.getMonth()];
   let week = WEEKDAY[today.getDay()];
-  // eslint-disable-next-line no-useless-concat
   let now = week + "," + " " + month + " " + date + "," + " " + year;
 
   return (
