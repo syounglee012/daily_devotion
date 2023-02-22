@@ -79,6 +79,7 @@ function Main() {
   ];
   let month = MONTH[today.getMonth()];
   let week = WEEKDAY[today.getDay()];
+  // eslint-disable-next-line no-useless-concat
   let now = week + "," + " " + month + " " + date + "," + " " + year;
 
   return (
