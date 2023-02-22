@@ -34,10 +34,7 @@ function Main() {
       })
       .then((data) => {
         setPassages(data);
-        console.log(
-          "🚀 ~ file: Main.js:32 ~ fetchData ~ data:",
-          data.passages[0]
-        );
+     
         window.scrollTo({ top: 0, behavior: "smooth" });
       })
       .catch((err) => {
