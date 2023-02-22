@@ -3,6 +3,11 @@ import styled from "styled-components";
 import Audio from "./Audio";
 
 export default function Passage({ passages, now }) {
+  const esv = passages?.passages?.[0]
+    .split(" ")
+    .reverse()[1]
+    .split("=")[1]
+    .slice(1, -1);
   return (
     <Container>
       <ContextContainer>
@@ -16,15 +21,16 @@ export default function Passage({ passages, now }) {
           <TodaysMessage
             dangerouslySetInnerHTML={{ __html: passages?.passages?.[0] }}
           ></TodaysMessage>
+          {/* <span className="esv" onClick={() => window.open(`${esv}`)}>
+            ESV
+          </span> */}
         </Context>
       </ContextContainer>
     </Container>
   );
 }
 
-const Container = styled.div`
-  /* margin: 20px auto 40px; */
-`;
+const Container = styled.div``;
 
 const ContextContainer = styled.div`
   max-width: 560px;
@@ -36,7 +42,7 @@ const ContextContainer = styled.div`
 const Title = styled.h1`
   color: white;
   font-size: 48px;
-  font-weight: bold;
+  font-weight: 600;
   @media screen and (max-width: 700px) {
     font-size: 34px;
   }
@@ -44,6 +50,16 @@ const Title = styled.h1`
 
 const Context = styled.div`
   width: 100%;
+  .esv {
+    cursor: pointer;
+    color: #0096ff;
+  }
+
+  .block-indent {
+    display: block;
+  }
+
+ 
 `;
 const MiddleContainer = styled.div`
   display: flex;
@@ -51,7 +67,7 @@ const MiddleContainer = styled.div`
 const ContextTitle = styled.span`
   color: white;
   font-size: 36px;
-  font-weight: 300;
+  font-weight: 400;
   margin: 0;
   display: inline;
   @media screen and (max-width: 700px) {
@@ -62,7 +78,7 @@ const ContextTitle = styled.span`
 const DateAndTime = styled.p`
   margin-top: 0;
   margin-bottom: 1.8675rem;
-  font-weight: 100;
+  font-weight: 300;
   font-size: 18px;
   font-style: italic;
   color: white;
@@ -77,7 +93,7 @@ const TodaysMessage = styled.div`
   font-weight: 400;
   line-height: 1.5rem;
   & a {
-    color: #0096FF;
+    color: #0096ff;
   }
 
   @media screen and (max-width: 700px) {
@@ -87,4 +103,6 @@ const TodaysMessage = styled.div`
   & h2 {
     font-size: 0;
   }
+
+
 `;
