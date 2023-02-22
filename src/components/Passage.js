@@ -50,16 +50,6 @@ const Title = styled.h1`
 
 const Context = styled.div`
   width: 100%;
-  .esv {
-    cursor: pointer;
-    color: #0096ff;
-  }
-
-  .block-indent {
-    display: block;
-  }
-
- 
 `;
 const MiddleContainer = styled.div`
   display: flex;
@@ -103,6 +93,4 @@ const TodaysMessage = styled.div`
   & h2 {
     font-size: 0;
   }
-
-
 `;
