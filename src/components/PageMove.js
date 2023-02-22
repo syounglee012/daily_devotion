@@ -9,7 +9,7 @@ const PageMove = ({ tomorrowHandler, yesterdayHandler }) => {
       <div>
         <Button onClick={yesterdayHandler} >
           <Icon>
-            <AiOutlineArrowLeft size={"20px"} color={"blue"}/>
+            <AiOutlineArrowLeft size={"20px"} color={"white"}/>
           </Icon>
           prev
         </Button>
@@ -19,7 +19,7 @@ const PageMove = ({ tomorrowHandler, yesterdayHandler }) => {
         <Button onClick={tomorrowHandler}>
           next
           <Icon>
-            <AiOutlineArrowRight size={"20px"} color={"blue"}/>
+            <AiOutlineArrowRight size={"20px"} color={"white"}/>
           </Icon>
         </Button>
       </div>
@@ -34,7 +34,7 @@ const PageMoveContainer = styled.div`
   max-width: 560px;
   display: flex;
   justify-content: space-between;
-
+  padding-right: 7rem;
   .prev {
     cursor: pointer;
     font-size: 20px;
@@ -50,8 +50,8 @@ const PageMoveContainer = styled.div`
     display: flex;
   }
 
-  @media screen and (max-width: 910px) {
-    max-width: 326px;
+  @media screen and (max-width: 650px) {
+    max-width: 400px;
   }
 `;
 
@@ -61,8 +61,11 @@ cursor: pointer;
     border: 0;
     background-color: transparent;
     display: flex;
-    color: blue;
+    color: lightblue;
     margin-bottom: 5rem;
+    :hover{
+      color:#0096FF;
+    }
 `;
 
 

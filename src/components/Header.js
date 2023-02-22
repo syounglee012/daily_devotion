@@ -7,7 +7,7 @@ export default function Header() {
     <MainContainer> 
       <MiddleContainer>
         <FirstBox>
-          <ChurchLogo><TbBuildingChurch size={30}/></ChurchLogo>
+          <ChurchLogo><TbBuildingChurch size={35} color={"white"}/></ChurchLogo>
           <ChurchName>Young's Church</ChurchName>
         </FirstBox>
      
@@ -21,7 +21,7 @@ export default function Header() {
 const MainContainer = styled.header`
   width: 100%;
   padding: 16px 0;
-  border: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
 `; 
 
 const MiddleContainer = styled.div`
@@ -53,6 +53,7 @@ const ChurchLogo = styled.div`
 `;
 
 const ChurchName = styled.h3`
+  color: white;
   margin: 10px 0 0 20px;
 `;
 

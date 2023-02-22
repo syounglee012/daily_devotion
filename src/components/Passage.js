@@ -3,10 +3,9 @@ import styled from "styled-components";
 import Audio from "./Audio";
 
 export default function Passage({ passages, now }) {
-  
   return (
     <Container>
-      <ContextContainer >
+      <ContextContainer>
         <Title>Proverbs Daily Devotion</Title>
         <Context>
           <MiddleContainer>
@@ -24,21 +23,21 @@ export default function Passage({ passages, now }) {
 }
 
 const Container = styled.div`
-  margin: 20px auto 40px;
-  
+  /* margin: 20px auto 40px; */
 `;
 
 const ContextContainer = styled.div`
   max-width: 560px;
-  padding: 0 32px;
+  padding: 0 7rem;
   margin-left: auto;
   margin-right: auto;
 `;
 
 const Title = styled.h1`
+  color: white;
   font-size: 48px;
   font-weight: bold;
-  @media screen and (max-width:700px) {
+  @media screen and (max-width: 700px) {
     font-size: 34px;
   }
 `;
@@ -50,11 +49,12 @@ const MiddleContainer = styled.div`
   display: flex;
 `;
 const ContextTitle = styled.span`
+  color: white;
   font-size: 36px;
   font-weight: 300;
   margin: 0;
   display: inline;
-  @media screen and (max-width:700px) {
+  @media screen and (max-width: 700px) {
     font-size: 26px;
   }
 `;
@@ -65,17 +65,22 @@ const DateAndTime = styled.p`
   font-weight: 100;
   font-size: 18px;
   font-style: italic;
-  color: #777;
-  @media screen and (max-width:700px) {
+  color: white;
+  @media screen and (max-width: 700px) {
     font-size: 16px;
   }
 `;
 
 const TodaysMessage = styled.div`
-  color: #555555;
-  font-size: 18px;
-  font-weight: 300;
-  @media screen and (max-width:700px) {
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5rem;
+  & a {
+    color: #0096FF;
+  }
+
+  @media screen and (max-width: 700px) {
     font-size: 16px;
   }
 

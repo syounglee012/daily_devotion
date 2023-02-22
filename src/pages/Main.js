@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-concat */
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import Header from "../components/Header";
 import PageMove from "../components/PageMove";
 import Passage from "../components/Passage";
@@ -10,8 +10,11 @@ function Main() {
   const [chapter, setChapter] = useState(today.getDate());
   const [passages, setPassages] = useState("");
   const focusRef = useRef(null);
+  const [show, setShow] = useState(false);
 
-  
+  useLayoutEffect(() => {
+    setShow(true);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,14 +28,21 @@ function Main() {
       );
     };
 
-    fetchData().then((res) => {
-      return res.json();
-    }).then((data) => {
-      setPassages(data);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }).catch((err) => {
-      console.log(err);
-    });
+    fetchData()
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setPassages(data);
+        console.log(
+          "🚀 ~ file: Main.js:32 ~ fetchData ~ data:",
+          data.passages[0]
+        );
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [chapter]);
 
   const tomorrowHandler = () => {
@@ -83,20 +93,27 @@ function Main() {
   let now = week + "," + " " + month + " " + date + "," + " " + year;
 
   return (
-    <Container ref={focusRef}>
-      <Header />
-      <Passage passages={passages} now={now} />
-      <PageMove
-        tomorrowHandler={tomorrowHandler}
-        yesterdayHandler={yesterdayHandler}
-      />
-    </Container>
+    <>
+      {show ? (
+        <Container ref={focusRef}>
+          <Header />
+          <div className="main-container">
+            <Passage passages={passages} now={now} />
+            <PageMove
+              tomorrowHandler={tomorrowHandler}
+              yesterdayHandler={yesterdayHandler}
+            />
+          </div>
+        </Container>
+      ) : null}
+    </>
   );
 }
 
 export default Main;
 
 const Container = styled.div`
+  background: url("Bible1.jpeg") no-repeat center center/cover;
   width: 100%;
   height: 100%;
   display: flex;
@@ -104,4 +121,22 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: end;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 1300px) {
+    background-position: 60% 70%;
+}
+
+  @media (max-width: 900px) {
+    background-position: 66% 70%;
+  }
 `;
