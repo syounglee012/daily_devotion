@@ -3,11 +3,11 @@ import styled from "styled-components";
 import Audio from "./Audio";
 
 export default function Passage({ passages, now }) {
-  const esv = passages?.passages?.[0]
-    .split(" ")
-    .reverse()[1]
-    .split("=")[1]
-    .slice(1, -1);
+  // const esv = passages?.passages?.[0]
+  //   .split(" ")
+  //   .reverse()[1]
+  //   .split("=")[1]
+  //   .slice(1, -1);
   return (
     <Container>
       <ContextContainer>
