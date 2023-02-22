@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Audio from "./Audio";
 
 export default function Passage({ passages, now }) {
+  console.log("🚀 ~ file: Passage.js:6 ~ Passage ~ passages:", passages)
   
   return (
     <Container>
