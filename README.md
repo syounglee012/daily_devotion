@@ -1,1 +1,1 @@
-URL: https://syounglee012.github.io/daily_devotion/
+URL: https://proverbs-daily-devotion.click
