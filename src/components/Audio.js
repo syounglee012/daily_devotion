@@ -6,7 +6,7 @@ const Audio = ({ passages }) => {
   const audio = passages?.passages?.[0].split(" ")?.[7]?.slice(6, -1);
   return (
     <AudioContainer key={passages?.id} onClick={() => window.open(`${audio}`)}>
-      <ImHeadphones />
+      <ImHeadphones style={{color:"blue"}}/>
     </AudioContainer>
   );
 };

@@ -8,7 +8,7 @@ export default function Header() {
       <MiddleContainer>
         <FirstBox>
           <ChurchLogo><TbBuildingChurch size={30}/></ChurchLogo>
-          <ChurchName>Sam's Church</ChurchName>
+          <ChurchName>Young's Church</ChurchName>
         </FirstBox>
      
       </MiddleContainer>
