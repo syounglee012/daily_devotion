@@ -14,7 +14,7 @@ const Search = () => {
 
   useLayoutEffect(() => {
     const getData = () => {
-      fetch("/bible.json")
+      fetch("./bible.json")
         .then(function (response) {
           return response.json();
         })
