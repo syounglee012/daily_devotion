@@ -3,11 +3,6 @@ import styled from "styled-components";
 import Audio from "./Audio";
 
 export default function Passage({ passages, now }) {
-  // const esv = passages?.passages?.[0]
-  //   .split(" ")
-  //   .reverse()[1]
-  //   .split("=")[1]
-  //   .slice(1, -1);
   return (
     <Container>
       <ContextContainer>
@@ -30,7 +25,9 @@ export default function Passage({ passages, now }) {
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+padding-top: 7rem;
+`;
 
 const ContextContainer = styled.div`
   max-width: 560px;

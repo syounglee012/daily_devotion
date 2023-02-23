@@ -34,7 +34,7 @@ const PageMoveContainer = styled.div`
   max-width: 560px;
   display: flex;
   justify-content: space-between;
-  padding-right: 7rem;
+ 
   .prev {
     cursor: pointer;
     font-size: 20px;
