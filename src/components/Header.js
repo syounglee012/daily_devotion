@@ -10,7 +10,7 @@ export default function Header() {
           <ChurchLogo>
             <TbBuildingChurch size={30} color={"white"} />
           </ChurchLogo>
-          <Link to="/home">
+          <Link to="/">
             <ChurchName>Young's Church</ChurchName>
           </Link>
           <Link to="/search">

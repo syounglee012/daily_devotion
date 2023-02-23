@@ -92,7 +92,7 @@ function App() {
       {show ? (
         <Routes>
           <Route
-            path="/home"
+            path="/"
             element={
               <Main
                 focusRef={focusRef}
