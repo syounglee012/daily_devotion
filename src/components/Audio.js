@@ -18,6 +18,6 @@ const AudioContainer = styled.div`
   cursor: pointer;
 
   @media screen and (max-width: 700px) {
-    padding: 9px 0 0 7px;
+    padding:0 0 0 7px;
   }
 `;

@@ -8,13 +8,16 @@ function Main({ focusRef, passages, now, tomorrowHandler, yesterdayHandler }) {
   return (
     <Container ref={focusRef}>
       <Header />
-      <div className="main-container">
+      <Wrap>
         <Passage passages={passages} now={now} />
-        <PageMove
-          tomorrowHandler={tomorrowHandler}
-          yesterdayHandler={yesterdayHandler}
-        />
-      </div>
+
+        <div className="pageMove">
+          <PageMove
+            tomorrowHandler={tomorrowHandler}
+            yesterdayHandler={yesterdayHandler}
+          />
+        </div>
+      </Wrap>
     </Container>
   );
 }
@@ -26,19 +29,14 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  justify-content: end;
+  align-items: end;
 
-  .main-container {
+  .pageMove {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
-    align-items: end;
-    width: 100%;
-    height: 100%;
+    align-items: center;
+    padding: 0 10rem 0 0;
   }
 
   @media (max-width: 1300px) {
@@ -47,5 +45,14 @@ const Container = styled.div`
 
   @media (max-width: 900px) {
     background-position: 66% 70%;
+    
+    .pageMove {
+      padding: 0;
+    }
+  }
+  @media (max-width: 700px) {
+    justify-content: center;
   }
 `;
+
+const Wrap = styled.div``;

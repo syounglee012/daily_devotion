@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import Main from "./pages/Main";
 import { Route, Routes } from "react-router-dom";
-import Search from "./components/Search";
+import Search from "./pages/Search";
 function App() {
   const [today, setToday] = useState(new Date());
   const [chapter, setChapter] = useState(today.getDate());

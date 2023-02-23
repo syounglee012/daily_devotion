@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import styled from "styled-components";
-import Audio from "./Audio";
-import PageMove from "./PageMove";
-import Header from "./Header";
+import Audio from "../components/Audio";
+import PageMove from "../components/PageMove";
+import Header from "../components/Header";
 
 const Search = () => {
   const [bookSearch, setBookSearch] = useState("Genesis");
@@ -179,7 +179,7 @@ const SearchEngine = styled.div`
   }
 
   @media screen and (max-width: 700px) {
-    padding: 5rem 2rem;
+    padding: 5rem 0;
   }
 `;
 
@@ -196,6 +196,7 @@ const Passage = styled.span`
   width: 100%;
   height: 100%;
   display: flex;
+
 `;
 
 const Context = styled.div`

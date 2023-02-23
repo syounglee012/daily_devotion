@@ -23,17 +23,27 @@ export default function Passage({ passages, now }) {
 }
 
 const Container = styled.div`
-padding-top: 7rem;
+  padding-top: 7rem;
+  width: 100%;
+
 `;
 
 const ContextContainer = styled.div`
-  max-width: 560px;
-  padding: 0 7rem;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 650px;
+  @media screen and (max-width: 700px) {
+   max-width: 350px;
+  }
+ 
 `;
 
 const Title = styled.h1`
+  width: 100%;
   color: white;
   font-size: 48px;
   font-weight: 600;
@@ -47,8 +57,10 @@ const Context = styled.div`
 `;
 const MiddleContainer = styled.div`
   display: flex;
+  width: 100%;
 `;
 const ContextTitle = styled.span`
+  width: fit-content;
   color: white;
   font-size: 36px;
   font-weight: 400;
@@ -60,6 +72,7 @@ const ContextTitle = styled.span`
 `;
 
 const DateAndTime = styled.p`
+width: 100%;
   margin-top: 0;
   margin-bottom: 1.8675rem;
   font-weight: 300;
@@ -73,9 +86,11 @@ const DateAndTime = styled.p`
 
 const TodaysMessage = styled.div`
   color: white;
+  width: 100%;
   font-size: 20px;
   font-weight: 400;
   line-height: 1.5rem;
+
   & a {
     color: #0096ff;
   }
