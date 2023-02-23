@@ -16,9 +16,6 @@ export default function Passage({ passages, now }) {
           <TodaysMessage
             dangerouslySetInnerHTML={{ __html: passages?.passages?.[0] }}
           ></TodaysMessage>
-          {/* <span className="esv" onClick={() => window.open(`${esv}`)}>
-            ESV
-          </span> */}
         </Context>
       </ContextContainer>
     </Container>
