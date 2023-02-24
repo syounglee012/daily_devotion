@@ -98,25 +98,30 @@ const Search = () => {
       {show ? (
         <SearchEngine>
           <Wrap>
-            <select onChange={bookSearchHandler}>
-              {localResults.map((passage) => {
-                return (
-                  <option value={passage?.[0]?.book} key={passage?.[0]?.book}>
-                    {passage?.[0]?.book}
-                  </option>
-                );
-              })}
-            </select>
-            <select onChange={chapterSearchHandler}>
-              <option value="all">CHAPTER</option>
-              {chapterSearch.map((chapter, idx) => {
-                return (
-                  <option value={chapter} key={chapter * idx}>
-                    {chapter}
-                  </option>
-                );
-              })}
-            </select>
+            <div className="select-dropdown">
+              <select className="select" onChange={bookSearchHandler}>
+                {localResults.map((passage) => {
+                  return (
+                    <option value={passage?.[0]?.book} key={passage?.[0]?.book}>
+                      {passage?.[0]?.book}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+
+            <div className="select-dropdown">
+              <select className="select" onChange={chapterSearchHandler}>
+                <option value="all">Chapter</option>
+                {chapterSearch.map((chapter, idx) => {
+                  return (
+                    <option value={chapter} key={chapter * idx}>
+                      {chapter}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
           </Wrap>
           <Passage>
             <Context>
@@ -159,11 +164,47 @@ const SearchEngine = styled.div`
 
 const Wrap = styled.div`
   width: 100%;
-  max-width: 220px;
+  max-width: 260px;
   display: flex;
   justify-content: space-between;
   height: fit-content;
   padding: 2rem;
+
+  .select-dropdown {
+    background-color: #e6e6e6;
+    width: auto;
+    max-width: 100%;
+    border-radius: 2px;
+    select {
+      font-family: "helvetica neue", helvetica;
+      font-size: 1rem;
+      font-weight: 200;
+      max-width: 100%;
+      padding: 8px 24px 8px 10px;
+      border: none;
+      background-color: transparent;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      &:active,
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    &:after {
+      content: " ";
+      position: absolute;
+      top: 50%;
+      margin-top: -2px;
+      right: 8px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #aaa;
+    }
+  }
 `;
 
 const Passage = styled.span`
