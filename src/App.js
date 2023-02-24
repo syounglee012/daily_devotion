@@ -3,6 +3,10 @@ import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import Main from "./pages/Main";
 import { Route, Routes } from "react-router-dom";
 import Search from "./pages/Search";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import styled from "styled-components";
+
 function App() {
   const [today, setToday] = useState(new Date());
   const [chapter, setChapter] = useState(today.getDate());
@@ -88,26 +92,52 @@ function App() {
   let now = week + "," + " " + month + " " + date + "," + " " + year;
 
   return (
-    <>
+    <Container>
       {show ? (
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Main
-                focusRef={focusRef}
-                passages={passages}
-                now={now}
-                tomorrowHandler={tomorrowHandler}
-                yesterdayHandler={yesterdayHandler}
-              />
-            }
-          />
-          <Route exact path="/search" element={<Search/>}></Route>
-        </Routes>
+        <>
+          <Header />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  focusRef={focusRef}
+                  passages={passages}
+                  now={now}
+                  tomorrowHandler={tomorrowHandler}
+                  yesterdayHandler={yesterdayHandler}
+                />
+              }
+            />
+            <Route exact path="/search" element={<Search />}></Route>
+          </Routes>
+          <Footer />
+        </>
       ) : null}
-    </>
+    </Container>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+ background: url("Bible1.jpeg") no-repeat center center/cover;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+
+  @media (max-width: 1460px) {
+    background-position: 60% 70%;
+  }
+
+  @media (max-width: 950px) {
+    background-position: 66% 70%;
+
+  }
+ @media (max-width: 750px) {
+  padding-top: 5rem;
+}
+`;

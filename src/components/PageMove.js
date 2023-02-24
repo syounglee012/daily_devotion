@@ -31,8 +31,10 @@ export default PageMove;
 
 const PageMoveContainer = styled.div`
   width: 100%;
-  max-width: 560px;
+  max-width: 650px;
+  height: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
  
   .prev {
@@ -50,8 +52,11 @@ const PageMoveContainer = styled.div`
     display: flex;
   }
 
-  @media screen and (max-width: 650px) {
-    max-width: 400px;
+  @media screen and (max-width: 740px) {
+    max-width:500px;
+  }
+  @media screen and (max-width: 500px) {
+    max-width: 300px;
   }
 `;
 

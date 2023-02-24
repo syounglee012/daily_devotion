@@ -2,7 +2,6 @@ import React, { useState, useEffect, useLayoutEffect } from "react";
 import styled from "styled-components";
 import Audio from "../components/Audio";
 import PageMove from "../components/PageMove";
-import Header from "../components/Header";
 
 const Search = () => {
   const [bookSearch, setBookSearch] = useState("Genesis");
@@ -10,6 +9,7 @@ const Search = () => {
   const [chapterResult, setChapterResult] = useState(1);
   const [searchResults, setSearchResults] = useState("");
   const [localResults, setLocalResults] = useState([]);
+  const [show, setShow] = useState(false);
   const passages = searchResults;
 
   useLayoutEffect(() => {
@@ -27,6 +27,7 @@ const Search = () => {
         });
     };
     getData();
+    setShow(true);
   }, []);
 
   const bookSearchHandler = (e) => {
@@ -94,71 +95,53 @@ const Search = () => {
   };
 
   return (
-    <Container>
-      <Header />
-      <SearchEngine>
-        <Wrap>
-          <select onChange={bookSearchHandler}>
-            {localResults.map((passage) => {
-              return (
-                <option value={passage?.[0]?.book} key={passage?.[0]?.book}>
-                  {passage?.[0]?.book}
-                </option>
-              );
-            })}
-          </select>
-          <select onChange={chapterSearchHandler}>
-            <option value="all">CHAPTER</option>
-            {chapterSearch.map((chapter, idx) => {
-              return (
-                <option value={chapter} key={chapter * idx}>
-                  {chapter}
-                </option>
-              );
-            })}
-          </select>
-        </Wrap>
+    <>
+      {show ? (
+        <SearchEngine>
+          <Wrap>
+            <select onChange={bookSearchHandler}>
+              {localResults.map((passage) => {
+                return (
+                  <option value={passage?.[0]?.book} key={passage?.[0]?.book}>
+                    {passage?.[0]?.book}
+                  </option>
+                );
+              })}
+            </select>
+            <select onChange={chapterSearchHandler}>
+              <option value="all">CHAPTER</option>
+              {chapterSearch.map((chapter, idx) => {
+                return (
+                  <option value={chapter} key={chapter * idx}>
+                    {chapter}
+                  </option>
+                );
+              })}
+            </select>
+          </Wrap>
 
-        <Passage>
-          <Context>
-            <MiddleContainer>
-              <ContextTitle>{passages?.canonical}</ContextTitle>
-              <Audio passages={passages} />
-            </MiddleContainer>
+          <Passage>
+            <Context>
+              <MiddleContainer>
+                <ContextTitle>{passages?.canonical}</ContextTitle>
+                <Audio passages={passages} />
+              </MiddleContainer>
 
-            <TodaysMessage
-              dangerouslySetInnerHTML={{ __html: passages?.passages?.[0] }}
-            ></TodaysMessage>
-          </Context>
-        </Passage>
-        <PageMove tomorrowHandler={next} yesterdayHandler={prev} />
-      </SearchEngine>
-    </Container>
+              <TodaysMessage
+                dangerouslySetInnerHTML={{ __html: passages?.passages?.[0] }}
+              />
+            </Context>
+          </Passage>
+          <PageMove tomorrowHandler={next} yesterdayHandler={prev} />
+        </SearchEngine>
+      ) : (
+        <NoshowDiv />
+      )}
+    </>
   );
 };
 
 export default Search;
-
-const Container = styled.div`
-  background: url("Bible1.jpeg") no-repeat center center/cover;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: end;
-  align-items: end;
-  color: white;
-
-  @media screen and (max-width: 700px) {
-  }
-
-  @media (max-width: 1510px) {
-    background-position: 60% 70%;
-  }
-
-  @media (max-width: 980px) {
-    background-position: 66% 70%;
-  }
-`;
 
 const SearchEngine = styled.div`
   width: 100%;
@@ -169,17 +152,9 @@ const SearchEngine = styled.div`
   align-items: center;
   padding-right: 6rem;
   padding-top: 5rem;
-  .search-container {
-    width: 100%;
-    max-width: 350px;
-    height: fit-content;
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem;
-  }
 
   @media screen and (max-width: 700px) {
-    padding: 5rem 0;
+    padding: 0;
   }
 `;
 
@@ -196,7 +171,6 @@ const Passage = styled.span`
   width: 100%;
   height: 100%;
   display: flex;
-
 `;
 
 const Context = styled.div`
@@ -234,4 +208,10 @@ const TodaysMessage = styled.div`
   & h2 {
     font-size: 0;
   }
+`;
+
+const NoshowDiv = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: black;
 `;
