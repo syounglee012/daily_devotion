@@ -125,7 +125,7 @@ const Container = styled.div`
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
+  background-position: center 10%;
 
   display: flex;
   flex-direction: column;
