@@ -6,6 +6,7 @@ import Search from "./pages/Search";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import styled from "styled-components";
+import LoadingPage from "./components/LoadingPage";
 
 function App() {
   const [today, setToday] = useState(new Date());
@@ -91,29 +92,33 @@ function App() {
   let now = week + "," + " " + month + " " + date + "," + " " + year;
 
   return (
-    <Container>
+    <>
       {show ? (
-        <>
-          <Header />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Main
-                  focusRef={focusRef}
-                  passages={passages}
-                  now={now}
-                  tomorrowHandler={tomorrowHandler}
-                  yesterdayHandler={yesterdayHandler}
-                />
-              }
-            />
-            <Route exact path="/search" element={<Search />}></Route>
-          </Routes>
-          <Footer />
-        </>
-      ) : null}
-    </Container>
+        <Container>
+          <>
+            <Header />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Main
+                    focusRef={focusRef}
+                    passages={passages}
+                    now={now}
+                    tomorrowHandler={tomorrowHandler}
+                    yesterdayHandler={yesterdayHandler}
+                  />
+                }
+              />
+              <Route exact path="/search" element={<Search />}></Route>
+            </Routes>
+            <Footer />
+          </>
+        </Container>
+      ) : (
+        <LoadingPage />
+      )}
+    </>
   );
 }
 
@@ -139,4 +144,3 @@ const Container = styled.div`
     padding-top: 5rem;
   }
 `;
-
