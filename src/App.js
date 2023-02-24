@@ -121,22 +121,22 @@ function App() {
 export default App;
 
 const Container = styled.div`
- background: url("Bible1.jpeg") no-repeat center center/cover;
-  width: 100%;
-  height: 100%;
+ background-image: url("Bible1.jpeg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: end;
 
-  @media (max-width: 1460px) {
-    background-position: 60% 70%;
+  @media (max-width: 1500px) {
+    background-position: 100%;
   }
 
-  @media (max-width: 950px) {
-    background-position: 66% 70%;
 
-  }
  @media (max-width: 750px) {
   padding-top: 5rem;
 }

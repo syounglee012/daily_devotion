@@ -40,7 +40,7 @@ const MiddleContainer = styled.div`
   align-items: end;
   justify-content: space-between;
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 750px) {
     display: flex;
     flex-direction: column;
   }

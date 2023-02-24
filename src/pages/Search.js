@@ -145,7 +145,7 @@ const SearchEngine = styled.div`
   padding-right: 6rem;
   padding-top: 5rem;
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 750px) {
     padding: 0;
   }
 `;
@@ -179,7 +179,7 @@ const ContextTitle = styled.span`
   font-weight: 400;
   margin: 0;
   display: inline;
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 750px) {
     font-size: 26px;
   }
 `;
@@ -193,7 +193,7 @@ const TodaysMessage = styled.div`
     color: #0096ff;
   }
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 750px) {
     font-size: 16px;
   }
 

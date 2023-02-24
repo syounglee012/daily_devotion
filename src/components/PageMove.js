@@ -52,7 +52,7 @@ const PageMoveContainer = styled.div`
     display: flex;
   }
 
-  @media screen and (max-width: 740px) {
+  @media screen and (max-width: 750px) {
     max-width:500px;
   }
   @media screen and (max-width: 500px) {

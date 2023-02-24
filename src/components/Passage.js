@@ -24,15 +24,14 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  @media screen and (max-width: 700px) {
-  }
+
 `;
 
 const Title = styled.h1`
   color: white;
   font-size: 48px;
   font-weight: 600;
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 750px) {
     font-size: 34px;
   }
 `;
@@ -51,7 +50,7 @@ const ContextTitle = styled.span`
   font-weight: 400;
   margin: 0;
   display: inline;
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 750px) {
     font-size: 26px;
   }
 `;
@@ -65,7 +64,7 @@ const TodaysMessage = styled.div`
     color: #0096ff;
   }
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 750px) {
     font-size: 16px;
   }
 
@@ -81,7 +80,7 @@ const DateAndTime = styled.p`
   font-size: 18px;
   font-style: italic;
   color: white;
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 750px) {
     font-size: 16px;
   }
 `;
