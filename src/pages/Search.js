@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import styled from "styled-components";
 import Audio from "../components/Audio";
-import PageMove from "../components/PageMove";
 import LoadingPage from "../components/LoadingPage";
 
 const Search = () => {
@@ -81,18 +80,6 @@ const Search = () => {
     [bookSearch, chapterResult, localResults]
   );
 
-  const prev = () => {
-    if (chapterResult > 1) {
-      setChapterResult((prev) => prev - 1);
-    }
-  };
-
-  const next = () => {
-    if (chapterResult < chapterSearch.length) {
-      setChapterResult((prev) => prev + 1);
-    }
-  };
-
   return (
     <>
       {show ? (
@@ -135,8 +122,6 @@ const Search = () => {
               />
             </Context>
           </Passage>
-
-          <PageMove tomorrowHandler={next} yesterdayHandler={prev} />
         </SearchEngine>
       ) : (
         <LoadingPage />
