@@ -36,7 +36,6 @@ function App() {
       })
       .then((data) => {
         setPassages(data);
-
         window.scrollTo({ top: 0, behavior: "smooth" });
       })
       .catch((err) => {
@@ -121,7 +120,7 @@ function App() {
 export default App;
 
 const Container = styled.div`
- background-image: url("Bible1.jpeg");
+  background-image: url("Bible1.jpeg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -136,8 +135,8 @@ const Container = styled.div`
     background-position: 100%;
   }
 
-
- @media (max-width: 750px) {
-  padding-top: 5rem;
-}
+  @media (max-width: 750px) {
+    padding-top: 5rem;
+  }
 `;
+

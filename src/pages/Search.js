@@ -2,6 +2,7 @@ import React, { useState, useEffect, useLayoutEffect } from "react";
 import styled from "styled-components";
 import Audio from "../components/Audio";
 import PageMove from "../components/PageMove";
+import LoadingPage from "../components/LoadingPage";
 
 const Search = () => {
   const [bookSearch, setBookSearch] = useState("Genesis");
@@ -9,6 +10,7 @@ const Search = () => {
   const [chapterResult, setChapterResult] = useState(1);
   const [searchResults, setSearchResults] = useState("");
   const [localResults, setLocalResults] = useState([]);
+  const [show, setShow] = useState(false);
   const passages = searchResults;
 
   useLayoutEffect(() => {
@@ -68,6 +70,7 @@ const Search = () => {
         })
         .then((data) => {
           setSearchResults(data);
+          setShow(true);
           window.scrollTo({ top: 0, behavior: "smooth" });
         })
 
@@ -82,54 +85,58 @@ const Search = () => {
     if (chapterResult > 1) {
       setChapterResult((prev) => prev - 1);
     }
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const next = () => {
     if (chapterResult < chapterSearch.length) {
       setChapterResult((prev) => prev + 1);
     }
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <SearchEngine>
-      <Wrap>
-        <select onChange={bookSearchHandler}>
-          {localResults.map((passage) => {
-            return (
-              <option value={passage?.[0]?.book} key={passage?.[0]?.book}>
-                {passage?.[0]?.book}
-              </option>
-            );
-          })}
-        </select>
-        <select onChange={chapterSearchHandler}>
-          <option value="all">CHAPTER</option>
-          {chapterSearch.map((chapter, idx) => {
-            return (
-              <option value={chapter} key={chapter * idx}>
-                {chapter}
-              </option>
-            );
-          })}
-        </select>
-      </Wrap>
+    <>
+      {show ? (
+        <SearchEngine>
+          <Wrap>
+            <select onChange={bookSearchHandler}>
+              {localResults.map((passage) => {
+                return (
+                  <option value={passage?.[0]?.book} key={passage?.[0]?.book}>
+                    {passage?.[0]?.book}
+                  </option>
+                );
+              })}
+            </select>
+            <select onChange={chapterSearchHandler}>
+              <option value="all">CHAPTER</option>
+              {chapterSearch.map((chapter, idx) => {
+                return (
+                  <option value={chapter} key={chapter * idx}>
+                    {chapter}
+                  </option>
+                );
+              })}
+            </select>
+          </Wrap>
+          <Passage>
+            <Context>
+              <MiddleContainer>
+                <ContextTitle>{passages?.canonical}</ContextTitle>
+                <Audio passages={passages} />
+              </MiddleContainer>
 
-      <Passage>
-        <Context>
-          <MiddleContainer>
-            <ContextTitle>{passages?.canonical}</ContextTitle>
-            <Audio passages={passages} />
-          </MiddleContainer>
+              <TodaysMessage
+                dangerouslySetInnerHTML={{ __html: passages?.passages?.[0] }}
+              />
+            </Context>
+          </Passage>
 
-          <TodaysMessage
-            dangerouslySetInnerHTML={{ __html: passages?.passages?.[0] }}
-          />
-        </Context>
-      </Passage>
-      <PageMove tomorrowHandler={next} yesterdayHandler={prev} />
-    </SearchEngine>
+          <PageMove tomorrowHandler={next} yesterdayHandler={prev} />
+        </SearchEngine>
+      ) : (
+        <LoadingPage />
+      )}
+    </>
   );
 };
 
