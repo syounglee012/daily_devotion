@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-concat */
 import React, { useEffect, useState, useRef } from "react";
 import Main from "./pages/Main";
 import { Route, Routes } from "react-router-dom";
@@ -34,7 +33,7 @@ function App() {
       .then((data) => {
         setPassages(data);
         window.scrollTo({ top: 0, behavior: "smooth" });
-        setShow(true)
+        setShow(true);
       })
       .catch((err) => {
         console.log(err);
@@ -86,7 +85,7 @@ function App() {
   ];
   let month = MONTH[today.getMonth()];
   let week = WEEKDAY[today.getDay()];
-  let now = week + "," + " " + month + " " + date + "," + " " + year;
+  let now = week + ", " + month + " " + date + ", " + year;
 
   return (
     <>
