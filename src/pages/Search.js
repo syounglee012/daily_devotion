@@ -9,7 +9,6 @@ const Search = () => {
   const [chapterResult, setChapterResult] = useState(1);
   const [searchResults, setSearchResults] = useState("");
   const [localResults, setLocalResults] = useState([]);
-  const [show, setShow] = useState(false);
   const passages = searchResults;
 
   useLayoutEffect(() => {
@@ -27,7 +26,6 @@ const Search = () => {
         });
     };
     getData();
-    setShow(true);
   }, []);
 
   const bookSearchHandler = (e) => {
@@ -95,49 +93,43 @@ const Search = () => {
   };
 
   return (
-    <>
-      {show ? (
-        <SearchEngine>
-          <Wrap>
-            <select onChange={bookSearchHandler}>
-              {localResults.map((passage) => {
-                return (
-                  <option value={passage?.[0]?.book} key={passage?.[0]?.book}>
-                    {passage?.[0]?.book}
-                  </option>
-                );
-              })}
-            </select>
-            <select onChange={chapterSearchHandler}>
-              <option value="all">CHAPTER</option>
-              {chapterSearch.map((chapter, idx) => {
-                return (
-                  <option value={chapter} key={chapter * idx}>
-                    {chapter}
-                  </option>
-                );
-              })}
-            </select>
-          </Wrap>
+    <SearchEngine>
+      <Wrap>
+        <select onChange={bookSearchHandler}>
+          {localResults.map((passage) => {
+            return (
+              <option value={passage?.[0]?.book} key={passage?.[0]?.book}>
+                {passage?.[0]?.book}
+              </option>
+            );
+          })}
+        </select>
+        <select onChange={chapterSearchHandler}>
+          <option value="all">CHAPTER</option>
+          {chapterSearch.map((chapter, idx) => {
+            return (
+              <option value={chapter} key={chapter * idx}>
+                {chapter}
+              </option>
+            );
+          })}
+        </select>
+      </Wrap>
 
-          <Passage>
-            <Context>
-              <MiddleContainer>
-                <ContextTitle>{passages?.canonical}</ContextTitle>
-                <Audio passages={passages} />
-              </MiddleContainer>
+      <Passage>
+        <Context>
+          <MiddleContainer>
+            <ContextTitle>{passages?.canonical}</ContextTitle>
+            <Audio passages={passages} />
+          </MiddleContainer>
 
-              <TodaysMessage
-                dangerouslySetInnerHTML={{ __html: passages?.passages?.[0] }}
-              />
-            </Context>
-          </Passage>
-          <PageMove tomorrowHandler={next} yesterdayHandler={prev} />
-        </SearchEngine>
-      ) : (
-        <NoshowDiv />
-      )}
-    </>
+          <TodaysMessage
+            dangerouslySetInnerHTML={{ __html: passages?.passages?.[0] }}
+          />
+        </Context>
+      </Passage>
+      <PageMove tomorrowHandler={next} yesterdayHandler={prev} />
+    </SearchEngine>
   );
 };
 
@@ -208,10 +200,4 @@ const TodaysMessage = styled.div`
   & h2 {
     font-size: 0;
   }
-`;
-
-const NoshowDiv = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: black;
 `;
