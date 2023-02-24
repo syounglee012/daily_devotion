@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-concat */
-import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Main from "./pages/Main";
 import { Route, Routes } from "react-router-dom";
 import Search from "./pages/Search";
