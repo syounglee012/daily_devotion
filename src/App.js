@@ -15,10 +15,6 @@ function App() {
   const focusRef = useRef(null);
   const [show, setShow] = useState(false);
 
-  useLayoutEffect(() => {
-    setShow(true);
-  }, []);
-
   useEffect(() => {
     const fetchData = async () => {
       return await fetch(
@@ -38,6 +34,7 @@ function App() {
       .then((data) => {
         setPassages(data);
         window.scrollTo({ top: 0, behavior: "smooth" });
+        setShow(true)
       })
       .catch((err) => {
         console.log(err);
