@@ -149,7 +149,7 @@ const SearchEngine = styled.div`
 
 const Wrap = styled.div`
   width: 100%;
-  max-width: 260px;
+  max-width: 300px;
   display: flex;
   justify-content: space-between;
   height: fit-content;
@@ -167,6 +167,7 @@ const Wrap = styled.div`
       max-width: 100%;
       padding: 8px 24px 8px 10px;
       border: none;
+
       background-color: transparent;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -179,15 +180,12 @@ const Wrap = styled.div`
     }
     &:after {
       content: " ";
-      position: absolute;
-      top: 50%;
-      margin-top: -2px;
-      right: 8px;
-      width: 0;
-      height: 0;
       border-left: 5px solid transparent;
       border-right: 5px solid transparent;
       border-top: 5px solid #aaa;
+      position: relative;
+      top: 12px;
+      right: 4px;
     }
   }
 `;

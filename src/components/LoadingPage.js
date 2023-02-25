@@ -65,10 +65,12 @@ const LoadingPage = () => {
 export default LoadingPage;
 
 const LoadingPages = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  max-width: 1905px;
+  height: 100%;
   display: flex;
   justify-content: end;
+  flex-wrap: wrap;
   padding: 5rem;
   margin: 0;
 
@@ -77,6 +79,7 @@ const LoadingPages = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     padding-top: 5rem;
     width: 100%;
     .loading-wrap {
@@ -113,4 +116,15 @@ const LoadingPages = styled.div`
       background-color: hsl(200, 20%, 95%);
     }
   }
+
+  @media (max-width: 750px) {
+    padding: 0;
+    .loading {
+      max-width: 90%;
+      .loading-wrap {
+        margin-top: 2rem;
+      }
+    }
+  }
+
 `;

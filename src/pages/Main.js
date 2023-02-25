@@ -31,5 +31,6 @@ const Container = styled.div`
 
   @media screen and (max-width: 750px) {
     padding: 0;
+    
   }
 `;

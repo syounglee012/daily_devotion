@@ -4,6 +4,7 @@ const Footer = () => {
   const footerStyle = {
     color: "white",
     width: "100%",
+    height: "3rem",
     backgroundColor: "black",
     fontSize: "15px",
     display: "flex",
