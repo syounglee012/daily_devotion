@@ -89,8 +89,8 @@ function App() {
 
   return (
     <>
-        <Container>
-      {show ? (
+      <Container>
+        {show ? (
           <>
             <Header />
             <Routes>
@@ -110,10 +110,10 @@ function App() {
             </Routes>
             <Footer />
           </>
-      ) : (
-        <LoadingPage />
+        ) : (
+          <LoadingPage />
         )}
-        </Container>
+      </Container>
     </>
   );
 }
