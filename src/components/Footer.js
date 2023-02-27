@@ -11,6 +11,10 @@ const Footer = () => {
     justifyContent: "center",
     alignItems: "center",
     fontWeight: 500,
+    position: "fixed",
+    bottom: 0,
+    left: 0,
+    zIndex: 1000,
   };
 
   return (

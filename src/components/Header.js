@@ -11,7 +11,7 @@ export default function Header() {
             <TbBuildingChurch size={30} color={"white"} />
           </ChurchLogo>
           <Link to="/" style={{ textDecoration: "none" }}>
-            <ChurchName>Young's church</ChurchName>
+            <ChurchName>ESV Bible</ChurchName>
           </Link>
           <Link to="/search">
             <TbSearch className="search" size={25} color={"white"} />

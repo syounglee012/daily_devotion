@@ -123,7 +123,7 @@ export default App;
 const Container = styled.div`
   background-image: url("Bible1.jpeg");
   background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover;
   background-position: center 10%;
 

@@ -139,8 +139,8 @@ const SearchEngine = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-right: 6rem;
-  padding-top: 5rem;
+  padding: 5rem 6rem 5rem 0;
+
 
   @media screen and (max-width: 750px) {
     padding: 0;
