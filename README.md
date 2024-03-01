@@ -1,1 +1,1 @@
-URL: https://proverbs-daily-devotion.click
+URL: https://www.scripture.today/
