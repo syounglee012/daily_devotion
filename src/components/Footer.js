@@ -19,7 +19,8 @@ const Footer = () => {
 
   return (
     <div style={footerStyle}>
-      Created with&nbsp;<span style={{ color: "red" }}>&#9829;</span>&nbsp;by Sam Lee 
+      Created with&nbsp;<span style={{ color: "yellow" }}>&#9829;</span>&nbsp;by
+      Sam Lee
     </div>
   );
 };
